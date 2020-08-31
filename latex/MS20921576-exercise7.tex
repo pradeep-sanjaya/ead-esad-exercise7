@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SLIIT Metropolitan Campus
+% Enterprise Software Analysis & Design
+% SE5060: Exercise 6
+% Version 1.0 (2020-08-24)
+%
+% Authors:
+% Pradeep (sanjayangp@gmail.com)
+
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{scrartcl} % Font size
+
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\title{	
+	\normalfont\normalsize
+	\textsc{Master of Science in Information Technology Specializing in Enterprise Applications Development}\\
+	\textsc{SLIIT Metropolitan Campus}\\
+	\textsc{BOC Merchant Tower, No \#28, St Michae\rq{}s Road,}\\
+	\textsc{Colombo 03, Sri Lanka}\\
+	\vspace{25pt} % Whitespace
+	\rule{\linewidth}{0.5pt}\\ % Thin top horizontal rule
+	\vspace{20pt} % Whitespace
+	{\huge Enterprise Software Analysis \& Design}\\
+	\textsc{SE5060: Exercise 7}\\
+	\vspace{12pt} % Whitespace
+	\rule{\linewidth}{2pt}\\ % Thick bottom horizontal rule
+	\vspace{12pt} % Whitespace
+}
+
+\author{\LARGE N. G. Pradeep Sanjaya\\
+	\small{MS20921576}
+} % Your name
+
+\date{\normalsize\today} % Today's date (\today) or a custom date
+
+\begin{document}
+
+\maketitle % Print the title
+
+\newpage
+\section*{Answer}
+Github - https://github.com/pradeep-sanjaya/ead-esad-exercise7
+
+\subsection*{Classes}
+
+
+\textbf{TestTemplateMethod.java}
+\lstset{language=Java}
+\begin{lstlisting}[frame=single]
+package com.sliit;
+
+public class TestTemplateMethod {
+
+  public static void main(String[] args) {
+
+    System.out.println("===== Tea =====\n");
+    Beverages tea = new Tea();
+    tea.prepareRecepie();
+
+    System.out.println("===== Coffee =====\n");
+    Beverages coffee = new Coffee();
+    coffee.prepareRecepie();
+  }
+
+}
+\end{lstlisting}
+
+
+\textbf{Beverages.java}
+\lstset{language=Java}
+\begin{lstlisting}[frame=single]
+package com.sliit;
+
+public abstract class Beverages {
+
+  public abstract void addCondiments();
+  public abstract void brew();
+
+  public final void prepareRecepie() {
+    boilWater();
+    brew();
+    addCondiments();
+    pourInCup();
+  }
+
+  void boilWater() {
+    System.out.println("Boiling water.");
+  }
+
+  void pourInCup() {
+    System.out.println("Pour into cup.");
+  }
+}
+\end{lstlisting}
+
+
+\textbf{Tea.java}
+\lstset{language=Java}
+\begin{lstlisting}[frame=single]
+package com.sliit;
+
+public class Tea extends Beverages {
+  @Override
+  public void addCondiments() {
+    System.out.println("Steeping the Tea.");
+  }
+
+  @Override
+  public void brew() {
+    System.out.println("Adding Lemon.");
+  }
+}
+\end{lstlisting}
+
+
+\textbf{Coffee.java}
+\lstset{language=Java}
+\begin{lstlisting}[frame=single]
+package com.sliit;
+
+public class Coffee extends Beverages {
+  @Override
+  public void addCondiments() {
+    System.out.println("Add sugar and milk.");
+  }
+
+  @Override
+  public void brew() {
+    System.out.println("Stripping coffee through filter.");
+  }
+}
+
+\end{lstlisting}
+
+
+\subsection*{Screenshots}
+
+\begin{center}
+	\includegraphics[width=1.0\columnwidth]{./figures/01.png}
+	\captionof{figure}{Solution}\label{Solution}%
+\end{center}
+
+
+\pagebreak
+\newpage
+\begin{thebibliography}{00}
+	\raggedright
+	\bibitem{b1} Samarathunge, U. (2020) Lecture - 03 GOF Design Patterns Part I
+    \bibitem{b1} Samarathunge, U. (2020) Lecture - 03 GOF Design Patterns Part II-v2
+    \bibitem{b1} Samarathunge, U. (2020) Lecture - 03 GOF Design Patterns Part II With Answers
+\end{thebibliography}
+
+
+\end{document}
